@@ -1,0 +1,23 @@
+<br><br>
+<% @errors.each_with_index do |err, ind| %>
+  <p><%= "Row #{ind+1}: " + err %></p>
+<% end %>
+<br><br>
+<%= form_with url: upload_csv_path, method: :post do |form| %>
+  <%= form.label :query, "Select CSV File:" %>
+  <%= form.file_field :csv_file, accept: '.csv' %>
+  <%= form.submit "Upload CSV" %>
+<% end %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Password</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.password %></td>
+    </tr>
+  <% end %>
+</table>
